@@ -30,7 +30,7 @@ def generate_spelling_bee_letters(dictionary, big_words, min_words=5, max_attemp
     
 def color_word(word, color):
     colors = {
-        'yellow': '\033[43;30m'
+        'yellow': '\033[43;30m',
     }
     reset = '\033[0m'
     return f"{colors[color]}{word}{reset}"
@@ -56,11 +56,31 @@ def start_game():
         print("\nERROR MAX TRIES REACHED\n")
         return
         
-    curr_rank = 'BEGINNER'
+    ranks = [
+    
+                "BEGINNER",
+                "GOOD START",
+                "MOVING UP",
+                "GOOD",
+                "SOLID",
+                "NICE",
+                "GREAT",
+                "AMAZING",
+                "GENIUS"
+    ]
         
-    #print(f'Generation attempts: {att}\n')
-    print('\n' + ' '.join(o for o in others[:3]) + f'\n  {center_disp}  \n' + ' '.join(o for o in others[3:]) + '\n')
-    print(f'FOUND: 0/{num_words} WORDS\nCURRENT RANK: {curr_rank}\n')
+    curr_rank = 'BEGINNER'
+    
+    print('\n' + ' -> '.join(color_word(r, 'yellow') if r == curr_rank else r for r in ranks))
+    print()
+    print(f" {others[0]}   {others[1]}")
+    print()
+    print(f"{others[2]}  {center_disp}  {others[3]}")
+    print()
+    print(f" {others[4]}   {others[5]}")
+    print()
+    
+    print(f'FOUND: 0/{num_words} WORDS\n')
     
     while True:
         user_input = input()
@@ -109,9 +129,18 @@ def start_game():
         elif score == 1.0:
             curr_rank = 'QUEEN BEE'
         
-        print('\n' + ' '.join(o for o in others[:3]) + f'\n  {center_disp}  \n' + ' '.join(o for o in others[3:]) + '\n')
-        print(f'FOUND: {foundct}/{num_words} WORDS\nCURRENT RANK: {curr_rank}\n')
+        
+        print('\n' + ' -> '.join(color_word(r, 'yellow') if r == curr_rank else r for r in ranks))
+        print()
+        print(f" {others[0]}   {others[1]}")
+        print()
+        print(f"{others[2]}  {center_disp}  {others[3]}")
+        print()
+        print(f" {others[4]}   {others[5]}")
+        print()
+        
+        print(f'FOUND: {foundct}/{num_words} WORDS\n')
         
         if foundct == num_words:
-            print("\nCONGRATS!\n")
+            print(f"\nCONGRATS! YOU ACHIEVED {color_word('QUEEN BEE', 'yellow')}!\n")
             return
