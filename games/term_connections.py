@@ -4,7 +4,9 @@ import os
 
 def load_tiles():
     cwd = os.getcwd()
-    challenge = random.choice(open(cwd+'/games/connections.txt').read().split('\n'))
+    
+    with open(cwd+'/games/connections.txt') as ct:
+        challenge = random.choice(ct.read().split('\n'))
 
     challenge_dict = json.loads(challenge)
 
