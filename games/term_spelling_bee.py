@@ -41,7 +41,7 @@ def start_game():
     found = []
     foundct = 0
     
-    print("\nTERMINAL SPELLING BEE\nType '--exit' to exit game\n")
+    print("\nTERMINAL SPELLING BEE\nType '--exit' to exit game")
     
     word_dict, big_words = load_dictionary(cwd+"/games/spbee_words.txt")
     center, others, num_words, word_list, att = generate_spelling_bee_letters(word_dict, big_words, min_words = 35)
@@ -59,7 +59,7 @@ def start_game():
     curr_rank = 'BEGINNER'
         
     #print(f'Generation attempts: {att}\n')
-    print(' '.join(o for o in others[:3]) + f'\n  {center_disp}  \n' + ' '.join(o for o in others[3:]) + '\n')
+    print('\n' + ' '.join(o for o in others[:3]) + f'\n  {center_disp}  \n' + ' '.join(o for o in others[3:]) + '\n')
     print(f'FOUND: 0/{num_words} WORDS\nCURRENT RANK: {curr_rank}\n')
     
     while True:
@@ -109,7 +109,7 @@ def start_game():
         elif score == 1.0:
             curr_rank = 'QUEEN BEE'
         
-        print(' '.join(o for o in others[:3]) + f'\n  {center_disp}  \n' + ' '.join(o for o in others[3:]) + '\n')
+        print('\n' + ' '.join(o for o in others[:3]) + f'\n  {center_disp}  \n' + ' '.join(o for o in others[3:]) + '\n')
         print(f'FOUND: {foundct}/{num_words} WORDS\nCURRENT RANK: {curr_rank}\n')
         
         if foundct == num_words:
