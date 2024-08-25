@@ -4,7 +4,7 @@
 - 3 games: Wordle, Connections, Spelling Bee
 - 2400+ Wordle puzzles
 - 350+ Connections puzzles
-- 14000+ Spelling Bee puzzles
+- 8400+ Spelling Bee puzzles
 
 ## Setup
 Run `git clone "https://github.com/siddhanth78/term-nyt-games"`
