@@ -3,7 +3,10 @@ import string
 import os
 
 def load_dictionary(file_path):
-    wd = open(file_path, 'r').read().split('\n')
+    
+    with open(file_path, 'r') as fp:
+        wd = fp.read().split('\n')
+        
     big_words = [w for w in wd if len(set(list(w))) == 7]
     return wd, big_words
 
@@ -81,7 +84,7 @@ def start_game():
             foundct += 1
             
         if set(user_input) == set(all_lets):
-            print("\nPANAGRAM!\n")
+            print(f"\n{color_word('PANAGRAM!', 'yellow')}\n")
         
         score = foundct/num_words
         
@@ -112,4 +115,3 @@ def start_game():
         if foundct == num_words:
             print("\nCONGRATS!\n")
             return
-    
