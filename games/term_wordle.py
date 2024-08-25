@@ -4,8 +4,11 @@ import os
 
 def get_word():
     cwd = os.getcwd()
-    wordle_list = open(cwd+'/games/wordle_words.txt').read().split('\n')
-    common_list = open(cwd+'/games/common_words.txt').read().split('\n')
+    with open(cwd+'/games/wordle_words.txt') as wf:
+        wordle_list = wf.read().split('\n')
+    
+    with open(cwd+'/games/common_words.txt') as cf:
+        common_list = cf.read().split('\n')
 
     word = random.choice(common_list)
     
